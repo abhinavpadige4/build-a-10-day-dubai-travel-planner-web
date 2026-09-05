@@ -1,0 +1,99 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 12 12 12;
+    --foreground: 255 255 255;
+    --card-bg: 255 255 255 / 0.05;
+    --card-border: 255 255 255 / 0.1;
+    --accent: 234 179 8;
+  }
+
+  .dark {
+    --background: 12 12 12;
+    --foreground: 255 255 255;
+    --card-bg: 255 255 255 / 0.05;
+    --card-border: 255 255 255 / 0.1;
+    --accent: 234 179 8;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer components {
+  .card {
+    @apply bg-card-bg/50 backdrop-blur-sm rounded-xl border border-card-border p-6 transition-all duration-300 hover:shadow-card-hover hover:-translate-y-1;
+  }
+
+  .btn-primary {
+    @apply bg-accent text-background px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:scale-105 hover:shadow-lg;
+  }
+
+  .btn-outline {
+    @apply border border-accent/50 text-accent px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:bg-accent/10 hover:scale-105;
+  }
+
+  .day-icon {
+    @apply w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-r from-accent/20 to-accent/40 text-accent font-bold text-sm;
+  }
+
+  .timeline-item {
+    @apply flex items-start space-x-4 py-2;
+  }
+
+  .timeline-dot {
+    @apply w-3 h-3 bg-accent rounded-full mt-1 flex-shrink-0;
+  }
+
+  .timeline-line {
+    @apply w-0.5 bg-accent/20 mt-2 mb-0;
+  }
+
+  .section-title {
+    @apply text-2xl font-bold mb-6 text-foreground;
+  }
+
+  .section-subtitle {
+    @apply text-lg text-muted-foreground mb-8 max-w-2xl;
+  }
+
+  .accordion-item {
+    @apply mb-4 border border-card-border rounded-lg overflow-hidden;
+  }
+
+  .accordion-header {
+    @apply flex items-center justify-between p-5 bg-card-bg/30 cursor-pointer font-medium transition-colors duration-200 hover:bg-card-bg/50;
+  }
+
+  .accordion-content {
+    @apply p-5 bg-card-bg/20 text-sm space-y-3;
+  }
+
+  .info-card {
+    @apply card p-6 h-full;
+  }
+
+  .badge {
+    @apply inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium;
+  }
+
+  .badge-budget {
+    @apply bg-accent/10 text-accent;
+  }
+
+  .badge-tip {
+    @apply bg-accent/20 text-accent/80;
+  }
+
+  .animate-on-scroll {
+    @apply opacity-0 transform translate-y-4 transition-all duration-700 ease-out;
+  }
+
+  .animate-on-scroll.animate-in {
+    @apply opacity-100 translate-y-0;
+  }
+}
